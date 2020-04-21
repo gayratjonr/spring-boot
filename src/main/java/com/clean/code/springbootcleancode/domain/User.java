@@ -1,5 +1,7 @@
 package com.clean.code.springbootcleancode.domain;
 
+import com.clean.code.springbootcleancode.domain.enumration.Status;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -20,6 +22,12 @@ public class User implements Serializable {
     private String password;
 
     private String email;
+
+    private String firstName;
+
+    private String lastName;
+
+    private Status status;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -69,4 +77,27 @@ public class User implements Serializable {
         this.roles = roles;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }
